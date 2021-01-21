@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Mulish";
+  src: url("./Mulish-Regular.ttf");
+}
+.intro-myself {
+  max-width: 1024px;
+  margin: auto;
+  padding: 3rem;
+  font-family: 'Mulish';
+  .container {
+    display: flex;
+    justify-content: space-around;
+    .intro-myself__basic {
+      width: 40%;
+      .intro-myself__basic__avatar {
+        width: 80%;
+        margin: auto;
+        img {
+          width: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+          object-position: center;
+        }
+      }
+      .intro-myself__basic__content {
+        margin-top: 2rem;
+        text-align: center;
+        .intro-myself__basic__content__title {
+          font-size: 3.5rem;
+          font-weight: 600;
+        }
+        .intro-myself__basic__content__subTittle {
+          font-size: 2.5rem;
+        }
+      }
+    }
+    .intro-myself__content {
+      width: 60%;
+      padding-top: 1rem;
+      .intro-myself__content__tile {
+        text-align: center;
+        h2 {
+          font-weight: 500;
+          font-size: 2.5rem;
+          margin: 0;
+        }
+      }
+      .intro-myself__content__line {
+        width: 80%;
+        margin: auto;
+        position: relative;
+        margin-top: 0.5rem;
+        .line {
+          height: 1px;
+          border-bottom: 3px #1f76c6 solid;
+        }
+        .circle {
+          position: absolute;
+          top: -2px;
+          height: 8px;
+          width: 8px;
+          background-color: #1f76c6;
+          border-radius: 50%;
+        }
+        .left {
+          left: 0;
+        }
+        .right {
+          right: 0;
+        }
+      }
+      .intro-myself__content__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 3rem;
+        .boxes {
+          width: 47%;
+          border: 2px solid #e7e7e7;
+          margin-bottom: 2rem;
+          padding: 0.5rem;
+          border-radius: 2px;
+          .boxes-container {
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding-top: 0.6rem;
+            padding-bottom: 0.6rem;
+            border-radius: 2px;
+            h3 {
+              margin: 0;
+              font-weight: 900;
+              margin-bottom: 0.5rem;
+            }
+            p {
+              width: 80%;
+              margin: auto;
+              font-size: 16px;
+              text-overflow: ellipsis;
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-line-clamp: 4;
+              -webkit-box-orient: vertical;
+            }
+          }
+        }
+      }
+    }
+  }
+}
