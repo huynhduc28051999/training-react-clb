@@ -1,59 +1,51 @@
 import React, { Component } from 'react'
 import './app.scss'
 import avartar from './avatar.png'
+import ComponentCon from './children'
 
+/// tạo slide show
+
+const listImage = ['url1', 'url2', 'url3', 'url4']
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      viTriChot: 1
+    }
+  }
+
+  thayDoiViTriChot = (index) => {
+    this.setState({
+      viTriChot: index
+    })
+  }
+  chuyenToi = () => {
+    let viTriTiepTheo = this.state.viTriChot + 1
+    if (viTriTiepTheo >= listImage.length) viTriTiepTheo = 0
+    this.setState({
+      viTriChot: viTriTiepTheo
+    })
+  }
+  quayLai = () => {
+    let viTriTiepTheo = this.state.viTriChot - 1
+    if (viTriTiepTheo < 0) viTriTiepTheo = listImage.length - 1
+    this.setState({
+      viTriChot: viTriTiepTheo
+    })
+  }
   render() {
     return (
-      <div className='intro-myself'>
-        <div className="container">
-          <div className='intro-myself__basic'>
-            <div className='intro-myself__basic__avatar'>
-              <img src={avartar} alt='avatar' />
+      <div>
+        {listImage.map((item, index) => (
+          <span>
+            <div>
+              {this.state.viTriChot === index ? `${item} (đang hiện)` : item}
+              <button onClick={() => this.thayDoiViTriChot(index)}>nut chuyen {index + 1}</button>
             </div>
-            <div className='intro-myself__basic__content'>
-              <div className='intro-myself__basic__content__title'>Hello world</div>
-              <div className='intro-myself__basic__content__subTittle'>My name is ...</div>
-            </div>
-          </div>
-          <div className='intro-myself__content'>
-            <div className='intro-myself__content__tile'>
-              <h2>Introducing Yourself Self</h2>
-              <h2>Introducing with Text Boxes</h2>
-            </div>
-            <div className='intro-myself__content__line'>
-              <div className='circle left' />
-              <div className='line' />
-              <div className='circle right' />
-            </div>
-            <div className='intro-myself__content__container'>
-              <div className='boxes'>
-                <div className='boxes-container'>
-                  <h3>TextHere 1</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cum magnam minus neque totam sint quo excepturi.</p>
-                </div>
-              </div>
-              <div className='boxes'>
-                <div className='boxes-container'>
-                  <h3>TextHere 2</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cum magnam minus neque totam sint quo excepturi.</p>
-                </div>
-              </div>
-              <div className='boxes'>
-                <div className='boxes-container'>
-                  <h3>TextHere 3</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cum magnam minus neque totam sint quo excepturi.</p>
-                </div>
-              </div>
-              <div className='boxes'>
-                <div className='boxes-container'>
-                  <h3>TextHere 4</h3>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam cum magnam minus neque totam sint quo excepturi.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </span>
+        ))}
+        <button onClick={this.chuyenToi}>chuyen toi</button>
+        <button onClick={this.quayLai}>lui lai</button>
       </div>
     )
   }
