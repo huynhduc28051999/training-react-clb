@@ -6,6 +6,7 @@ import ComponentCon from './children'
 /// tạo slide show
 
 const listImage = ['url1', 'url2', 'url3', 'url4']
+let addressTimeout
 export default class App extends Component {
   constructor(props) {
     super(props)
@@ -32,6 +33,17 @@ export default class App extends Component {
     this.setState({
       viTriChot: viTriTiepTheo
     })
+  }
+  componentDidMount() {
+    addressTimeout = setTimeout(() => {
+      this.chuyenToi()
+    }, 5000)
+  }
+  componentDidUpdate() {
+    if (addressTimeout) clearTimeout(addressTimeout)
+    addressTimeout = setTimeout(() => {
+      this.chuyenToi()
+    }, 5000)
   }
   render() {
     return (
