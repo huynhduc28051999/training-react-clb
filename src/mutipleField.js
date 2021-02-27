@@ -6,8 +6,13 @@ export default class MutipleField extends Component {
     // e.target.a.value
     // console.log('zoo')
     const formValue = new FormData(e.target)
-    console.log(formValue)
-
+    // console.log(formValue.values())
+    const value = {}
+    for (var key of formValue.entries()) {
+      value[key[0]] = key[1]
+		// 	console.log(key[0] + ', ' + key[1])
+    }
+    console.log(value)
   }
   render() {
     return (
